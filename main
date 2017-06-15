@@ -1,0 +1,52 @@
+
+class Ship {
+
+	public void setSail() {
+		System.out.println("Setting sail");
+	}
+}
+
+interface Vehicle {
+	public void travel();
+
+}
+
+public class AnonymousClasses {
+
+	public static void main(String[] args) {
+
+		////////////////////////////////
+		// Anonymous class has been set up while creating an object of type
+		//////////////////////////////// Ship.
+		// By using curly brackets after initialization, the setSail method is
+		//////////////////////////////// overriden
+		// Now when ship1.setSail is called, it will use the anonymous class
+		//////////////////////////////// version of the method
+    // This is the equivalent of creating a class that "extends" Ship
+    // and overrides the setSail method.
+
+		Ship ship1 = new Ship() {
+			@Override
+			public void setSail() {
+				System.out.println("The subship has set sail, captain.");
+			}
+		};
+
+		ship1.setSail();
+
+		/////////////////////////////////
+		// This example creates an anonymous class that essentially "implements" the Vehicle interface
+    // and overrides the travel method.
+
+		Vehicle vehicle1 = new Vehicle() {
+			@Override
+			public void travel() {
+				System.out.println("Traveling now captain.");
+			}
+		};
+		
+		vehicle1.travel();
+
+	}
+
+}
